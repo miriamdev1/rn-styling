@@ -6,34 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { HomeScreen } from './src/components/HomeScreen';
 import { DetailsScreen } from './src/components/DetailsScreen';
 import { Logo } from './src/components/Logo';
-
-
-
-// todo-- clean up
-// the code below only works with navigation@4.x
-// const transitionConfig = () => {
-//   return {
-//     transitionSpec: {
-//       duration: 750,
-//       easing: Easing.out(Easing.poly(4)),
-//       timing: Animated.timing,
-//       useNativeDriver: true,
-//     },
-//     screenInterpolator: sceneProps => {      
-//       const { layout, position, scene } = sceneProps
-
-//       const thisSceneIndex = scene.index
-//       const width = layout.initWidth
-
-//       const translateX = position.interpolate({
-//         inputRange: [thisSceneIndex - 1, thisSceneIndex],
-//         outputRange: [width, 0],
-//       })
-
-//       return { transform: [ { translateX } ] }
-//     },
-//   }
-// }
+import { StyleSheet }  from 'react-native';
 
 export default function App() {
 
@@ -41,7 +14,9 @@ export default function App() {
 
   return (
 
-      <NavigationContainer>
+      <View style={styles.appContainer} >
+
+        <NavigationContainer>
 
             <Logo/>
 
@@ -54,6 +29,23 @@ export default function App() {
 
       </NavigationContainer>
 
+      </View>
+
+
   );
 
 }
+
+const styles = StyleSheet.create({
+  appContainer: {
+    display: 'flex',
+    flexDirection: 'column'
+  },
+  logo: {
+
+  },
+  navigator: {
+    flex: 1
+  }
+})
+
